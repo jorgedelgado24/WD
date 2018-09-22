@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import main from './components/pages/main';
+import citas from './components/pages/citas';
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+
+/*import MyNavbar from './components/navbar/navbar';
+import MyImage from './components/principal-img/image';
+import Rowi from './components/row/row';
+import MyCards from './components/cards/cards';*/
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div id="App">
+          <Switch>
+            <Route exact path="/" component={main} />
+            <Route exact path="/agendarcita" component={citas} />
+          </Switch>
+        </div>
+      </Router>
+
+      
     );
   }
 }

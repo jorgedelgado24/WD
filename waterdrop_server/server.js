@@ -1,8 +1,6 @@
 /*require("dotenv").config(); */
 var express = require("express");
 var bodyParser = require("body-parser");
-var mysql2 = require("mysql2");
-
 var db = require("./models");
 
 var app = express();
@@ -14,7 +12,8 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 // Routes
-require("./routes/Routes")(app);
+var apiroutes = require('./routes/Routes');
+app.use('/api', apiroutes);
 
 var syncOptions = { force: false };
 

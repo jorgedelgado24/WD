@@ -8,11 +8,14 @@ const Controller = require('../controllers/controller');
   router.get("/agendarcita", Controller.getAllEmpresas);
   
   // Traer los dias que no vamos a esa empresa para quitarlos del calendario
-  app.get("/agendarcita/:empresa", Controller.getFechasNot);
+  router.get("/agendarcita/:empresa", Controller.getFechasNot);
 
   
   // Mostrar los horarios disponibles para esta empresa y dia
-  app.get("/agendarcita/:empresa/:fecha", Controller.getCitasFechaEmpresa);
+  router.get("/agendarcita/:empresa/:fecha", Controller.getCitasFechaEmpresa);
+
+  
+  module.exports = router;
 
 
 
